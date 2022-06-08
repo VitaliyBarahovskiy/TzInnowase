@@ -6,6 +6,10 @@ __pycache__/
 local_settings.py
 media
 
+.idea
+logs/
+
+et-url origin.txt
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
 # <django-project-name>/staticfiles/
