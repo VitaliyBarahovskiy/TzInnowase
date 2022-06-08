@@ -1,6 +1,6 @@
 FROM python:3.8.3
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/djangoProject
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -13,12 +13,12 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
     ln -s /opt/poetry/bin/poetry && \
     poetry config virtualenvs.create false
 
-COPY ./pyproject.toml ./poetry.lock* /usr/src/app/
+COPY ./pyproject.toml ./poetry.lock* /usr/src/djangoProject/
 
 RUN poetry install
 
-#COPY ./entrypoint.sh /usr/src/app/
+COPY ./entrypoint.sh /usr/src/djangoProject/
 
-COPY . /usr/src/app/
+COPY . /usr/src/djangoProject/
 
-RUN chmod 755 /usr/src/app/prestart.sh
+RUN chmod 755 /usr/src/djangoProject/prestart.sh
